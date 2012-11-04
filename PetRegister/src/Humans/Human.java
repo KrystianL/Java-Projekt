@@ -11,22 +11,43 @@ public class Human {
 	
 	private List<Dogs> Pets;
 	
-	public Human(String name)
+	private String pesel;
+	public Human(String name, String pesel)
 	{
 		this.name=name;
-		this.Pets=new PetsList(this);
+		this.Pets=new ArrayList<Dogs>();
+		this.pesel=pesel;
 	}
-	public String getName(){
+	public Human(String name) {
+
+		this(name,"");
+	}
+	public Human()
+	{
+		this("","");
+	}
+
+	public String getName() {
 		return name;
 	}
-	public void setName(String name){
-		this.name=name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public List<Dogs> getPets(){
+	public List<Dogs> getPets() {
 		return Pets;
 	}
-	public void setPets(List<Dogs> Pets){
-		this.Pets=Pets;
+	public void setCars(List<Dogs> Pets) {
+		this.Pets = Pets;
 	}
+
+	public String getPesel() {
+		return pesel;
+	}
+
+	public void setPesel(String pesel) {
+		this.pesel = pesel;
+	}
+
+
 
 }

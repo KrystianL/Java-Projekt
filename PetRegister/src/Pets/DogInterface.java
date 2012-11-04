@@ -8,4 +8,6 @@ public interface DogInterface {
 	
 	public void setOwner(Human owner);
 
+	
+
 }

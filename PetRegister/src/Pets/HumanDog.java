@@ -28,9 +28,18 @@ public class HumanDog extends Dogs {
 		this.name=name;
 	}
 	
-	/////////////////
-	public void printData()
-	{
-		System.out.println(race+" "+name);
+	@Override
+	public String getCarDetails() {
+		// TODO Auto-generated method stub
+		return race+" "+name;
+	}
+
+	@Override
+	public Dogs Clone() {
+
+		HumanDog returnValue =new HumanDog();
+		returnValue.setName(this.name);
+
+		return returnValue;
 	}
 }
