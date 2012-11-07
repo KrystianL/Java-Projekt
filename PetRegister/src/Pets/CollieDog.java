@@ -1,7 +1,7 @@
 package Pets;
 
 public class CollieDog extends Dogs{
-
+/*******************/
 	@Override
 	public String getDogsDetails() {
 		// TODO Auto-generated method stub
