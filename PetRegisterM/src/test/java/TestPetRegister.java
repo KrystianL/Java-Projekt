@@ -11,6 +11,7 @@ public class TestPetRegister {
 		assertEquals(expected, actual);
 		assertNull
 		assertSame
+		assertNotNull
 		
 	}
 
