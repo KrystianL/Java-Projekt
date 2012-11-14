@@ -84,6 +84,7 @@ public class HumanManager implements ManagerInterface<Human>{
 	}
 
 	@Override
+	
 	public List<Human> getAll() {
 		List<Human> result= new ArrayList<Human>();
 
