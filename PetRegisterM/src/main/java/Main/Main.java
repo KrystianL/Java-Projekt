@@ -1,27 +1,44 @@
 package Main;
 
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import Pets.Dogs;
 import Pets.HumanDog;
-import Humans.Human;
+import Humans.*;
+import Management.HibernateHumanManager;
 
 public class Main {
 
-
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
-
-		Human p = new Human("Adam");
-
-		Dogs d1=new HumanDog("Labrador", "Ciof");
 		
-
 		
-		p.getPets().add(d1);
-
-		for(Dogs d : p.getPets())
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+	
+		
+		HibernateHumanManager mgr = new HibernateHumanManager(session);
+		mgr.save(new Human("Adam","1234"));
+		mgr.save(new Human("Michal","1234"));
+		mgr.save(new Human("Paweł","1234"));
+		Human human =new Human("Adam");
+		human.setId(10);
+		mgr.delete(human);
+		//session.getTransaction().commit();
+		for(Human p: mgr.getAll())
 		{
-			d.printData();
+			System.out.println(p.getName());
 		}
-
+		
+		session.close();
+		//System.out.println("Osoba o id 4:"+mgr.get(4).getName());
+		
 	}
 
 }
