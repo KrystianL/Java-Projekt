@@ -10,6 +10,7 @@ import Pets.Dogs;
 import Pets.HumanDog;
 import Humans.*;
 import Management.HibernateHumanManager;
+import Management.HumanManager;
 
 public class Main {
 
@@ -23,18 +24,17 @@ public class Main {
 		Session session = factory.openSession();
 	
 		
-		HibernateHumanManager mgr = new HibernateHumanManager(session);
-		mgr.save(new Human("Adam","1234"));
-		mgr.save(new Human("Michal","1234"));
-		mgr.save(new Human("Paweł","1234"));
-		Human human =new Human("Adam");
+		
+		HumanManager hm = new HumanManager (session);
+		hm.save(new Human ("Kasia","1234" ));
+		Human human =new Human("Kasia");
 		human.setId(10);
-		mgr.delete(human);
-		//session.getTransaction().commit();
-		for(Human p: mgr.getAll())
+		hm.delete(human);
+		for (Human p: hm.getAll())
 		{
 			System.out.println(p.getName());
 		}
+		
 		
 		session.close();
 		//System.out.println("Osoba o id 4:"+mgr.get(4).getName());

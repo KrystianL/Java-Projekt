@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+
 import Humans.Human;
 
 public class HumanManager implements ManagerInterface<Human>{
@@ -25,7 +27,7 @@ public class HumanManager implements ManagerInterface<Human>{
 	PreparedStatement deleteHumanStatement;
 	PreparedStatement getAllHumansStatement;
 	PreparedStatement getHumanByIdStatement;
-	public HumanManager()
+	public HumanManager(Session session)
 	{
 		try {
 			conn=DriverManager.getConnection(url);

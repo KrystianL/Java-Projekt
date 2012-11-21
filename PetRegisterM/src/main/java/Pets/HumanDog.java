@@ -1,5 +1,7 @@
 package Pets;
+import javax.persistence.Entity;
 
+@Entity
 public class HumanDog extends Dogs {
 	
 	private String race;

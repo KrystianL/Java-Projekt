@@ -20,7 +20,7 @@
    
     <property name="hbm2ddl.auto">update</property>
     
-    <mapping class="registerOffice.businessObjects.persons.Person"/>
-   <mapping class="registerOffice.businessObjects.cars.PersonCar"/>
+    <mapping class="Humans.Human"/>
+   <mapping class="Pets.HumanDog"/>
     </session-factory>
 </hibernate-configuration>
