@@ -18,9 +18,17 @@ public class HibernateHumanManager implements ManagerInterface<Human>{
 	
 	@Override
 	public Human get(int id){
-		List<Human> result = this.session.getNamedQuery("allHumansById")
-				.setInteger("Id", id).list();
-		return result.get(0);
+		List<Human> result = session.getNamedQuery("allHumansById")
+				.setInteger("id", id).list();
+		if(result.size()==0)
+		
+		return null;
+		Human returnValue = new Human(
+				result.get(0).getName(),
+				result.get(0).getPesel());
+		returnValue.setId(result.get(0).getId());
+		return returnValue;
+				
 	}
 	@Override
 	public List<Human> getAll(){
@@ -30,16 +38,14 @@ public class HibernateHumanManager implements ManagerInterface<Human>{
 	@Override
 	public boolean save(Human obj) {
 		try{
-			this.session.beginTransaction();
-			this.session.save(obj);
+			session.beginTransaction();
+			session.save(obj);
 			
-			session.beginTransaction().commit();
+			session.getTransaction().commit();
 			return true;
 		}catch(Exception ex)
-		{
-			return false;
-		}
-		
+		{}
+		return false;
 		
 	}
 	@Override

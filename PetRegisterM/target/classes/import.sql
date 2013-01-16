@@ -1,0 +1,5 @@
+insert into Osoby(imie,pesel) values ('Adam','12345') 
+insert into Osoby(imie,pesel) values ('Karol','42345') 
+insert into Osoby(imie,pesel) values ('Ania','82945') 
+insert into Osoby(imie,pesel) values ('Magda','14765') 
+insert into Osoby(imie,pesel) values ('Julia','5337543') 
